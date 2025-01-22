@@ -1,3 +1,13 @@
+fork of pygobject-stubs with gst-python overrides included in Gst.pyi
+Upstream project is missing the gi overrides provided by gst-python package.
+
+learning drawbacks of current implementation:
+ - Gst.init not called if using Gst overrides resulting in fake_function (solved by calling Gst.init() in generate.py)
+ - Errors: (IteratorError, IteratorError, MapError, AddError) missing Exception class
+ - Event.new_buffer_size when generated has a async param which is a python keyword: must be manually renamed to _async (force positional argument via "/"?)
+ - Iterator(GObject.GBoxed) with overrides create bogus elements (duplicate copy, next, resync, free), whys is this happening? now manually fixed
+
+
 # Typing Stubs for PyGObject
 
 [![PyPI](https://img.shields.io/pypi/v/pygobject-stubs)](https://pypi.org/project/PyGObject-stubs)
