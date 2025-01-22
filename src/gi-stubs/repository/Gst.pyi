@@ -421,7 +421,7 @@ def version() -> typing.Tuple[int, int, int, int]: ...
 def version_string() -> str: ...
 def warning(*args, **kwargs): ... # FIXME Function
 
-class AddError:
+class AddError(Exception):
     args = ... # FIXME Constant
     
     def add_note(self, *args, **kwargs): ... # FIXME Function
@@ -2316,11 +2316,11 @@ class Iterator(GObject.GBoxed):
         Iterator()
         new_single(type:GType, object:GObject.Value) -> Gst.Iterator
     """
-    copy: typing.Callable[[Iterator, Iterator], None] = ...
-    next: typing.Callable[[Iterator, typing.Any], IteratorResult] = ...
+    # copy: typing.Callable[[Iterator, Iterator], None] = ...
+    # next: typing.Callable[[Iterator, typing.Any], IteratorResult] = ...
     item: typing.Callable[[Iterator, typing.Any], IteratorItem] = ...
-    resync: typing.Callable[[Iterator], None] = ...
-    free: typing.Callable[[Iterator], None] = ...
+    # resync: typing.Callable[[Iterator], None] = ...
+    # free: typing.Callable[[Iterator], None] = ...
     pushed: Iterator = ...
     type: typing.Type[typing.Any] = ...
     lock: GLib.Mutex = ...
@@ -2341,21 +2341,21 @@ class Iterator(GObject.GBoxed):
     def resync(self) -> None: ...
     
 
-class IteratorError:
+class IteratorError(Exception):
     args = ... # FIXME Constant
     
     def add_note(self, *args, **kwargs): ... # FIXME Function
     def with_traceback(self, *args, **kwargs): ... # FIXME Function
     
 
-class LinkError:
+class LinkError(Exception):
     args = ... # FIXME Constant
     
     def add_note(self, *args, **kwargs): ... # FIXME Function
     def with_traceback(self, *args, **kwargs): ... # FIXME Function
     
 
-class MapError:
+class MapError(Exception):
     args = ... # FIXME Constant
     
     def add_note(self, *args, **kwargs): ... # FIXME Function
