@@ -6,7 +6,7 @@ learning drawbacks of current implementation:
  - Errors: (IteratorError, IteratorError, MapError, AddError) missing Exception class
  - Event.new_buffer_size when generated has a async param which is a python keyword: must be manually renamed to _async (force positional argument via "/"?)
  - Iterator(GObject.GBoxed) with overrides create bogus elements (duplicate copy, next, resync, free), whys is this happening? now manually fixed
-
+ - Missing GstBase (added in this repo)
 
 # Typing Stubs for PyGObject
 
